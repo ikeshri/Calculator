@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1020">
+<meta name="description" content="Calcora — Smart, Fast, Private, Offline-first all-in-one calculator suite.">
+<meta name="robots" content="index,follow">
+<title>Calcora — All-in-One Calculator</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-orb orb1"></div><div class="bg-orb orb2"></div>
+<header class="topbar">
+  <button class="brand" id="homeBtn"><span class="logo">C</span><span><b>CALCORA</b><small>Smart • Fast • Private</small></span></button>
+  <div class="top-actions">
+    <button class="icon-btn" id="themeBtn" aria-label="Theme">☾</button>
+    <button class="icon-btn" id="historyBtn" aria-label="History">↺</button>
+  </div>
+</header>
+
+<main id="app">
+<section id="homeView" class="view active">
+  <div class="hero">
+    <div>
+      <span class="eyebrow">ALL-IN-ONE CALCULATOR</span>
+      <h1>Everything you need.<br><span>One smart place.</span></h1>
+      <p>80+ everyday, finance, education, conversion and scientific tools — designed to work offline.</p>
+    </div>
+    <div class="hero-ring"><div>CALC<br><strong>ORA</strong></div></div>
+  </div>
+
+  <div class="search-wrap">
+    <span>⌕</span><input id="searchInput" placeholder="Search a calculator… e.g. GST, EMI, BMI">
+  </div>
+
+  <div class="quick-row">
+    <button class="quick" data-open="69">⚡<b>Scientific</b><small>Advanced math</small></button>
+    <button class="quick" data-open="10">₹<b>EMI</b><small>Loan planning</small></button>
+    <button class="quick" data-open="29">%<b>GST</b><small>Tax helper</small></button>
+    <button class="quick" data-open="20">◒<b>SIP</b><small>Investing</small></button>
+  </div>
+
+  <div class="section-head"><h2>Categories</h2><button id="allBtn">View all</button></div>
+  <div class="category-grid" id="categoryGrid"></div>
+
+  <div class="online-card">
+    <div><span class="eyebrow">ONLINE TOOLS</span><h3>Live utilities</h3><p>Currency rates and market snapshots use the internet when available.</p></div>
+    <button id="onlineBtn">Open</button>
+  </div>
+</section>
+
+<section id="exploreView" class="view">
+  <div class="page-title"><span class="eyebrow">EXPLORE</span><h1>All calculators</h1></div>
+  <div class="search-wrap"><span>⌕</span><input id="exploreSearch" placeholder="Search 80 calculators…"></div>
+  <div id="calculatorList" class="calc-list"></div>
+</section>
+
+<section id="favoritesView" class="view">
+  <div class="page-title"><span class="eyebrow">SAVED</span><h1>Favorites</h1></div>
+  <div id="favoritesList" class="calc-list"></div>
+</section>
+
+<section id="historyView" class="view">
+  <div class="page-title"><span class="eyebrow">RECENT</span><h1>History</h1><button class="danger-link" id="clearHistory">Clear</button></div>
+  <div id="historyList" class="history-list"></div>
+</section>
+
+<section id="onlineView" class="view">
+  <div class="page-title"><span class="eyebrow">LIVE</span><h1>Online tools</h1></div>
+  <div class="live-grid">
+    <article class="tool-card"><div class="tool-icon">₽</div><h3>Currency Converter</h3><p>Latest available EUR-based rates from Frankfurter.</p><div class="live-form"><input id="curAmount" type="number" value="1"><select id="curFrom"></select><span>→</span><select id="curTo"></select></div><button id="currencyBtn" class="primary">Get rate</button><div id="currencyResult" class="result-mini">Ready</div></article>
+    <article class="tool-card"><div class="tool-icon">📈</div><h3>Market Snapshot</h3><p>Crypto prices via CoinGecko when the network is available.</p><button id="marketBtn" class="primary">Load market</button><div id="marketResult" class="market-result"></div></article>
+    <article class="tool-card"><div class="tool-icon">⛽</div><h3>Fuel Cost</h3><p>Calculate trip fuel cost offline using your local fuel price.</p><div class="two"><input id="fuelDist" type="number" placeholder="Distance km"><input id="fuelMileage" type="number" placeholder="Mileage km/L"><input id="fuelPrice" type="number" placeholder="₹ / L"></div><button id="fuelBtn" class="primary">Calculate</button><div id="fuelResult" class="result-mini">—</div></article>
+  </div>
+</section>
+
+<section id="aboutView" class="view">
+  <div class="page-title"><span class="eyebrow">CALCORA</span><h1>About</h1></div>
+  <div class="about-card"><div class="about-logo">C</div><h2>Calcora</h2><p>Smart • Fast • Private • Offline-first</p><p>Built as a lightweight static web app for GitHub Pages. Most calculators work without an internet connection.</p><a href="https://www.instagram.com/_ikeshri/" target="_blank" rel="noopener">◇ _ikeshri — Developer • Designer • Builder</a></div>
+  <div class="about-card"><h3>Suggest next update</h3><textarea id="suggestion" placeholder="What should Calcora add next?"></textarea><button id="suggestBtn" class="primary">Save suggestion</button></div>
+</section>
+
+<section id="calcView" class="view">
+  <button id="backBtn" class="back">← Back</button>
+  <div class="calc-head"><div><span class="eyebrow" id="calcCategory"></span><h1 id="calcTitle"></h1><p id="calcDescription"></p></div><button id="favBtn" class="icon-btn">☆</button></div>
+  <div id="calcForm" class="calc-form"></div>
+  <button id="calculateBtn" class="primary calculate">Calculate</button>
+  <div id="calcResult" class="calc-result"><span>RESULT</span><strong>—</strong></div>
+</section>
+</main>
+
+<nav class="bottom-nav">
+<button data-nav="homeView" class="active">⌂<small>Home</small></button>
+<button data-nav="exploreView">⌕<small>Explore</small></button>
+<button data-nav="favoritesView">☆<small>Saved</small></button>
+<button data-nav="historyView">↺<small>History</small></button>
+<button data-nav="aboutView">⋯<small>More</small></button>
+</nav>
+<script src="app.js"></script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));}</script>
+</body>
+</html>

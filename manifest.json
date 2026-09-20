@@ -1,0 +1,11 @@
+{
+  "name":"Calcora — All-in-One Calculator",
+  "short_name":"Calcora",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#080b14",
+  "theme_color":"#0b1020",
+  "description":"Smart, fast, private, offline-first calculator suite.",
+  "icons":[{"src":"icon.svg","sizes":"192x192","type":"image/svg+xml","purpose":"any maskable"}]
+}
